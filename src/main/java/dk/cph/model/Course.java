@@ -38,6 +38,8 @@ public class Course {
     @ManyToMany(mappedBy = "course")
     private Set<Student> students = new HashSet<>();
 
+    @ManyToOne
+    private Teacher teacher;
 
 
 }

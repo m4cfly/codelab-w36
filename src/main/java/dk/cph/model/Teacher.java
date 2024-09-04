@@ -3,6 +3,8 @@ package dk.cph.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -26,4 +28,12 @@ public class Teacher {
     @Column(name = "zoom", unique = true)
     private String zoom;
 
+    @OneToMany(mappedBy = "teacher")
+    private Set<Course> courses = new HashSet<>();
+
+    public Teacher(String name, String email, String zoom) {
+        this.name = name;
+        this.email = email;
+        this.zoom = zoom;
+    }
 }
