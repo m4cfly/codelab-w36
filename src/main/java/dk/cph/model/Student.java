@@ -39,7 +39,6 @@ public class Student {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-
     @ManyToMany
     private Set<Course> courses = new HashSet<>();
 
@@ -60,7 +59,6 @@ public class Student {
     public void preUpdate() {
         this.updatedAt = LocalDateTime.now();
     }
-
 
 
 }
