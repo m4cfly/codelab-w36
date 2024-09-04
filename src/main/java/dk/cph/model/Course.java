@@ -41,7 +41,18 @@ public class Course {
     @ManyToOne
     private Teacher teacher;
 
+    public Course(String description, CourseName courseName, Set<Student> students, Teacher teacher) {
+        this.description = description;
+        this.courseName = courseName;
+        this.students = students;
+        this.teacher = teacher;
+    }
 
+    public Course(String description, CourseName courseName, Teacher teacher) {
+        this.description = description;
+        this.courseName = courseName;
+        this.teacher = teacher;
+    }
 }
 
 
