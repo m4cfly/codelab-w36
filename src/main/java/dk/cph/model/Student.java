@@ -43,6 +43,9 @@ public class Student {
     @ManyToMany
     private Set<Course> courses = new HashSet<>();
 
-
-
+    public Student(String name, String email, Set<Course> courses) {
+        this.name = name;
+        this.email = email;
+        this.courses = courses;
+    }
 }
