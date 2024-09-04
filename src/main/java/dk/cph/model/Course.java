@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -30,6 +33,10 @@ public class Course {
     @Column (name = "course_name", nullable = false)
     @Enumerated(EnumType.STRING)
     private CourseName courseName;
+
+
+    @ManyToMany(mappedBy = "course")
+    private Set<Student> students = new HashSet<>();
 
 
 
