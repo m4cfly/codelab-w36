@@ -41,16 +41,21 @@ public class Course {
     @ManyToOne
     private Teacher teacher;
 
-    public Course(String description, CourseName courseName, Set<Student> students, Teacher teacher) {
+    public Course(String description, LocalDate startDate, LocalDate endDate, CourseName courseName, Teacher teacher) {
         this.description = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.courseName = courseName;
-        this.students = students;
         this.teacher = teacher;
     }
 
-    public Course(String description, CourseName courseName, Teacher teacher) {
+
+    public Course(String description, LocalDate startDate, LocalDate endDate, CourseName courseName, Set<Student> students, Teacher teacher) {
         this.description = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.courseName = courseName;
+        this.students = students;
         this.teacher = teacher;
     }
 }
