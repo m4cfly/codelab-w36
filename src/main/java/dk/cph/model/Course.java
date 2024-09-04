@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @Getter
 @ToString
 public class Course {
+    // test
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
