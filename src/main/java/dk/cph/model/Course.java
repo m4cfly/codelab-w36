@@ -27,6 +27,12 @@ public class Course {
     @Column(name = "end_date", nullable = false)
     private LocalDate endDate;
 
+    @Column (name = "course_name", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private CourseName courseName;
+
+
+
 }
 
 
