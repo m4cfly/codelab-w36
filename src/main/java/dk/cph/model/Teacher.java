@@ -28,6 +28,7 @@ public class Teacher {
     @Column(name = "zoom", unique = true)
     private String zoom;
 
+
     @OneToMany(mappedBy = "teacher")
     private Set<Course> courses = new HashSet<>();
 
@@ -36,4 +37,15 @@ public class Teacher {
         this.email = email;
         this.zoom = zoom;
     }
+
+//
+//    public void addCourse(Course course) {
+//        if (course != null){
+//            this.courses.add(course);
+//            course.getTeachers().add(this);
+//
+//        }
+//    }
+
+
 }
