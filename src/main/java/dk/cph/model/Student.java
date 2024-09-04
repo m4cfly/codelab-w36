@@ -50,6 +50,11 @@ public class Student {
 
     }
 
+    public Student(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
     @PrePersist
     public void prePersist() {
         this.createdAt = LocalDateTime.now();
