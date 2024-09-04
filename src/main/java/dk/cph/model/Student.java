@@ -39,13 +39,16 @@ public class Student {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    @ManyToMany
-    private Set<Course> courses = new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private Course course;
+    //private Set<Course> courses = new HashSet<>();
 
-    public Student(String name, String email, Set<Course> courses) {
+
+    public Student(String name, String email, Course course) {
         this.name = name;
         this.email = email;
-        this.courses = courses;
+        this.course = course;
 
     }
 

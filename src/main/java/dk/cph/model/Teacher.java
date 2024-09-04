@@ -9,6 +9,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "teachers")
+@Data
 @NoArgsConstructor
 @Getter
 @ToString
@@ -29,7 +30,7 @@ public class Teacher {
     private String zoom;
 
 
-    @OneToMany(mappedBy = "teacher")
+    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Course> courses = new HashSet<>();
 
     public Teacher(String name, String email, String zoom) {
@@ -37,15 +38,5 @@ public class Teacher {
         this.email = email;
         this.zoom = zoom;
     }
-
-//
-//    public void addCourse(Course course) {
-//        if (course != null){
-//            this.courses.add(course);
-//            course.getTeachers().add(this);
-//
-//        }
-//    }
-
 
 }

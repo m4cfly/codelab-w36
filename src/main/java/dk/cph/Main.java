@@ -28,6 +28,8 @@ public class Main {
 
 
         Course course1 = new Course("hej", LocalDate.of(2023, 4, 7), LocalDate.of(2025, 7, 28), CourseName.MUSIC, teacher);
+
+
         Course course2 = new Course("hej", LocalDate.of(2023, 4, 9), LocalDate.of(2025, 9, 28), CourseName.SCIENCE, teacher3);
         Course course3 = new Course("hej", LocalDate.of(2024, 11, 9), LocalDate.of(2026, 10, 28), CourseName.SPORTS, teacher3);
         Course course4 = new Course("hej", LocalDate.of(2024, 10, 9), LocalDate.of(2026, 9, 28), CourseName.SPORTS, teacher4);
@@ -36,7 +38,23 @@ public class Main {
 
         try (var em = emf.createEntityManager()) {
             em.getTransaction().begin();
-
+            em.persist(course1);
+            em.persist(student3);
+            em.persist(teacher3);
+            em.persist(teacher4);
+            em.persist(course2);
+            em.persist(course3);
+            em.persist(course4);
+            em.persist(student2);
+            em.persist(student4);
+            em.find(Course.class, course1.getId());
+            em.find(Course.class, course2.getId());
+            em.find(Course.class, course3.getId());
+            em.find(Course.class, course4.getId());
+            em.find(Teacher.class, teacher3.getId());
+            em.find(Teacher.class, teacher4.getId());
+            //em.remove(course1);
+            em.contains("hej");
 
             em.getTransaction().commit();
 

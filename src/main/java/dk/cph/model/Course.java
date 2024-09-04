@@ -35,8 +35,9 @@ public class Course {
     private CourseName courseName;
 
 
-    @ManyToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "course")
     private Set<Student> students = new HashSet<>();
+
 
     @ManyToOne
     private Teacher teacher;
