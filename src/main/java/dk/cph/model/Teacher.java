@@ -3,7 +3,6 @@ package dk.cph.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.awt.print.Book;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,7 +28,8 @@ public class Teacher {
     @Column(name = "zoom", unique = true)
     private String zoom;
 
-    @OneToMany( cascade = {CascadeType.PERSIST}, orphanRemoval = true, fetch = FetchType.EAGER)
+
+    @OneToMany(mappedBy = "teacher")
     private Set<Course> courses = new HashSet<>();
 
     public Teacher(String name, String email, String zoom) {
@@ -37,6 +37,7 @@ public class Teacher {
         this.email = email;
         this.zoom = zoom;
     }
+
 //
 //    public void addCourse(Course course) {
 //        if (course != null){
@@ -45,5 +46,6 @@ public class Teacher {
 //
 //        }
 //    }
+
 
 }
