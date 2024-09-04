@@ -29,7 +29,7 @@ public class Teacher {
     @Column(name = "zoom", unique = true)
     private String zoom;
 
-    @OneToMany(mappedBy = "teachers", cascade = {CascadeType.PERSIST}, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany( cascade = {CascadeType.PERSIST}, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Course> courses = new HashSet<>();
 
     public Teacher(String name, String email, String zoom) {
