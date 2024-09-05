@@ -40,7 +40,6 @@ public class Student {
     private LocalDateTime updatedAt;
 
     @ManyToMany
-//    @JoinColumn(name = "course_id")
     private Set<Course> courses = new HashSet<>();
 
 

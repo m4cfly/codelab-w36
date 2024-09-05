@@ -30,7 +30,7 @@ public class Teacher {
     private String zoom;
 
 
-    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "teacher")
     private Set<Course> courses = new HashSet<>();
 
     public Teacher(String name, String email, String zoom) {

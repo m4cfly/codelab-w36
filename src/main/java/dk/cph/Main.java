@@ -32,14 +32,43 @@ public class Main {
         Course course5 = new Course("hej", LocalDate.of(2024, 4, 17), LocalDate.of(2025, 4, 28), CourseName.ENGLISH, teacher2);
 
         GradeSheet g1 = new GradeSheet(CourseName.MUSIC, GradeScale.C);
+        GradeSheet g2 = new GradeSheet(CourseName.SCIENCE, GradeScale.A);
+        GradeSheet g3 = new GradeSheet(CourseName.SPORTS, GradeScale.B);
+        GradeSheet g4 = new GradeSheet(CourseName.ENGLISH, GradeScale.F);
+
 
 
         // tilføjer teachers og students til courses og students til gradesheets:
+        // pga. one-to-one relation mellem Student og GradeSheet, kan en student max have en gradesheet, og en gradesheet max have en student
 
         course1.addTeacher(teacher);
         course1.addStudent(student);
-
+        course1.addStudent(student2);
         g1.addStudent(student);
+//        g2.addStudent(student2);
+
+        course2.addTeacher(teacher3);
+        course2.addStudent(student3);
+        g2.addStudent(student3);
+
+        course3.addTeacher(teacher4);
+        course3.addStudent(student4);
+        course3.addStudent(student);
+        g3.addStudent(student4);
+//        g5.addStudent(student);
+
+        course4.addTeacher(teacher2);
+        course4.addStudent(student2);
+        course4.addStudent(student3);
+//        g6.addStudent(student2);
+//        g7.addStudent(student3);
+
+
+        course5.addTeacher(teacher3);
+        course5.addStudent(student4);
+        g4.addStudent(student2);
+
+
 
 
 
@@ -65,6 +94,13 @@ public class Main {
             em.persist(student4);
 
             em.persist(g1);
+            em.persist(g2);
+            em.persist(g3);
+            em.persist(g4);
+//            em.persist(g5);
+//            em.persist(g6);
+//            em.persist(g7);
+//            em.persist(g8);
 
 //            em.find(Course.class, course1.getId());
 //            em.find(Course.class, course2.getId());
