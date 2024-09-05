@@ -37,9 +37,11 @@ public class CourseDaoImpl implements GenericDAO <Course, Integer> {
     @Override
     public void persistEntity(Course course) {
         try (EntityManager em = emf.createEntityManager()) {
-            em.getTransaction().begin();
-            em.persist(course);
-            em.getTransaction().commit();
+            if (course != null) {
+                em.getTransaction().begin();
+                em.persist(course);
+                em.getTransaction().commit();
+            }
 
         }
     }

@@ -35,11 +35,11 @@ public class Course {
     private CourseName courseName;
 
 
-    @ManyToMany(mappedBy = "courses")
+    @ManyToMany(mappedBy = "courses", cascade = CascadeType.PERSIST)
     private Set<Student> students = new HashSet<>();
 
 
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.PERSIST)
     private Teacher teacher;
 
     public Course(String description, LocalDate startDate, LocalDate endDate, CourseName courseName, Teacher teacher) {

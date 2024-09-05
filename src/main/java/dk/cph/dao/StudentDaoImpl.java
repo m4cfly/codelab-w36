@@ -38,10 +38,11 @@ public class StudentDaoImpl implements GenericDAO <Student, Integer> {
     @Override
     public void persistEntity(Student student) {
         try (EntityManager em = emf.createEntityManager()) {
+            if (student != null) {
             em.getTransaction().begin();
             em.persist(student);
             em.getTransaction().commit();
-
+            }
         }
     }
 

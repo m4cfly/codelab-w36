@@ -39,7 +39,7 @@ public class Student {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    @ManyToMany
+    @ManyToMany (cascade = CascadeType.PERSIST)
     private Set<Course> courses = new HashSet<>();
 
 

@@ -1,6 +1,9 @@
 package dk.cph;
 
 
+import dk.cph.dao.CourseDaoImpl;
+import dk.cph.dao.StudentDaoImpl;
+import dk.cph.dao.TeacherDaoImpl;
 import dk.cph.model.*;
 import jakarta.persistence.EntityManagerFactory;
 import dk.cph.config.HibernateConfig;
@@ -68,6 +71,9 @@ public class Main {
         course5.addStudentToCourse(student4);
         g4.addStudent(student2);
 
+//        student4.setName("Jenjo Jenjen");
+//        teacher4.setZoom("lmæmjojpø@");
+
 
 
 
@@ -112,9 +118,22 @@ public class Main {
 //            em.contains("hej");
 
 
+
+
             em.getTransaction().commit();
+
+        StudentDaoImpl studentDao = StudentDaoImpl.getInstance(emf);
+        student4.setName("niojæioji");
+        studentDao.updateEntity(student4, student4.getId());
+
+
 
 
         }
+
+
+
+
+
     }
 }

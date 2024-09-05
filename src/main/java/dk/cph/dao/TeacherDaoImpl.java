@@ -33,9 +33,11 @@ public class TeacherDaoImpl implements GenericDAO<Teacher, Integer> {
     @Override
     public void persistEntity(Teacher teacher) {
         try (EntityManager em = emf.createEntityManager()) {
+            if (teacher != null) {
             em.getTransaction().begin();
             em.persist(teacher);
             em.getTransaction().commit();
+            }
 
         }
     }
@@ -65,6 +67,7 @@ public class TeacherDaoImpl implements GenericDAO<Teacher, Integer> {
             em.getTransaction().begin();
             Teacher updatedTeacher = em.merge(teacher);
             em.getTransaction().commit();
+            em.close();
             return updatedTeacher;
         }
     }
