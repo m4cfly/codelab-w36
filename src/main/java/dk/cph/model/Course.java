@@ -51,14 +51,14 @@ public class Course {
     }
 
 
-    public Course(String description, LocalDate startDate, LocalDate endDate, CourseName courseName, Set<Student> students, Teacher teacher) {
-        this.description = description;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.courseName = courseName;
-        this.students = students;
-        this.teacher = teacher;
-    }
+//    public Course(String description, LocalDate startDate, LocalDate endDate, CourseName courseName, Set<Student> students, Teacher teacher) {
+//        this.description = description;
+//        this.startDate = startDate;
+//        this.endDate = endDate;
+//        this.courseName = courseName;
+//        this.students = students;
+//        this.teacher = teacher;
+//    }
 
 
     public void addTeacher (Teacher teacher) {
@@ -68,9 +68,10 @@ public class Course {
     }
 
 
-    public void addStudent (Student student) {
+    public void addStudentToCourse (Student student) {
         if (student != null) {
             this.students.add(student);
+            student.getCourses().add(this);
         }
     }
 

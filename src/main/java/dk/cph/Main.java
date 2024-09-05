@@ -42,30 +42,30 @@ public class Main {
         // pga. one-to-one relation mellem Student og GradeSheet, kan en student max have en gradesheet, og en gradesheet max have en student
 
         course1.addTeacher(teacher);
-        course1.addStudent(student);
-        course1.addStudent(student2);
+        course1.addStudentToCourse(student);
+        course1.addStudentToCourse(student2);
         g1.addStudent(student);
 //        g2.addStudent(student2);
 
         course2.addTeacher(teacher3);
-        course2.addStudent(student3);
+        course2.addStudentToCourse(student3);
         g2.addStudent(student3);
 
         course3.addTeacher(teacher4);
-        course3.addStudent(student4);
-        course3.addStudent(student);
+        course3.addStudentToCourse(student4);
+        course3.addStudentToCourse(student);
         g3.addStudent(student4);
 //        g5.addStudent(student);
 
         course4.addTeacher(teacher2);
-        course4.addStudent(student2);
-        course4.addStudent(student3);
+        course4.addStudentToCourse(student2);
+        course4.addStudentToCourse(student3);
 //        g6.addStudent(student2);
 //        g7.addStudent(student3);
 
 
         course5.addTeacher(teacher3);
-        course5.addStudent(student4);
+        course5.addStudentToCourse(student4);
         g4.addStudent(student2);
 
 
