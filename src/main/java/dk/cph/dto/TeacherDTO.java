@@ -9,23 +9,20 @@ import java.util.Set;
 
 public class TeacherDTO {
 
-
-    private Integer id;
-
-
     private String name;
 
 
     private String zoom;
 
 
-    private Set<Course> courses = new HashSet<>();
+    private Set<CourseDTO> courses = new HashSet<>();
 
     public TeacherDTO(Teacher teacher) {
         this.name = teacher.getName();
         this.zoom = teacher.getZoom();
         for (Course course : teacher.getCourses()) {
-            this.courses.add(course);
+            CourseDTO courseDTO = new CourseDTO(course);
+            this.courses.add(courseDTO);
         }
 
     }

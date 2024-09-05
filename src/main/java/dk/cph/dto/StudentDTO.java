@@ -14,23 +14,21 @@ import java.util.Set;
 public class StudentDTO {
 
 
-    private Integer id;
-
-
     private String name;
 
 
     private String email;
 
 
-    private Set<Course> courses = new HashSet<>();
+    private Set<CourseDTO> courses = new HashSet<>();
 
 
     public StudentDTO(Student student) {
         this.name = student.getName();
         this.email = student.getEmail();
         for (Course course : student.getCourses()) {
-            this.courses.add(course);
+            CourseDTO courseDTO = new CourseDTO(course); // ændrer alt fra Course og laver det om til beskyttet CourseDTO
+            this.courses.add(courseDTO);
         }
 
     }

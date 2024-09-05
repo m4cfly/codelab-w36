@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class CourseDTO {
 
-    private Integer id;
+
 
     private LocalDate startDate;
 
@@ -23,19 +23,20 @@ public class CourseDTO {
     private CourseName courseName;
 
 
-    private Set<Student> students = new HashSet<>();
+    private Set<StudentDTO> students = new HashSet<>();
 
 
-    private Teacher teacher;
+    private TeacherDTO teacher;
 
 
     public CourseDTO(Course course) {
         this.courseName = course.getCourseName();
         this.startDate = course.getStartDate();
         this.endDate = course.getEndDate();
-        this.teacher = course.getTeacher();
+        this.teacher = new TeacherDTO(course.getTeacher());
         for (Student student : course.getStudents()) {
-            this.students.add(student);
+            StudentDTO studentDTO = new StudentDTO(student);
+            this.students.add(studentDTO);
         }
 
     }
