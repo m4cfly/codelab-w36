@@ -39,22 +39,17 @@ public class Student {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    @ManyToOne
-    @JoinColumn(name = "course_id")
-    private Course course;
-    //private Set<Course> courses = new HashSet<>();
+    @ManyToMany
+//    @JoinColumn(name = "course_id")
+    private Set<Course> courses = new HashSet<>();
 
 
-    public Student(String name, String email, Course course) {
-        this.name = name;
-        this.email = email;
-        this.course = course;
-
-    }
 
     public Student(String name, String email) {
         this.name = name;
         this.email = email;
+
+
     }
 
     @PrePersist

@@ -35,7 +35,7 @@ public class Course {
     private CourseName courseName;
 
 
-    @OneToMany(mappedBy = "course")
+    @ManyToMany(mappedBy = "courses")
     private Set<Student> students = new HashSet<>();
 
 
@@ -59,6 +59,22 @@ public class Course {
         this.students = students;
         this.teacher = teacher;
     }
+
+
+    public void addTeacher (Teacher teacher) {
+        if (teacher != null) {
+            this.teacher = teacher;
+        }
+    }
+
+
+    public void addStudent (Student student) {
+        if (student != null) {
+            this.students.add(student);
+        }
+    }
+
+
 }
 
 
